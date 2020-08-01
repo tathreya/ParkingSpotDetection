@@ -1,2 +1,5 @@
 # ParkingSpotDetection
-code for detecting parking spots using Nanonets API and Machine Learning
+
+First commit (8/1/20):
+
+- changed totalPixelArea calculations. Previously, the totalPixelArea was the entire images pixel area. This was easy to calculate but yielded inaccurate results because much of the image is not actual parking spaces. To fix this, I instead made the totalPixelArea the area of the sum of the bounding box rectangles which are around the rows itself This yielded very accurate results as there were 26 cars and 35 total spots (not counting handicapped spots). 26/35 is roughly 74% of the spots occupied. The new method returned 75% occupied which is very close to the actual number. The only problem with this method is that for the code to detect the entire area of a row, there must be cars occupying the first and last parking spots of the specific row. This is because my row logic depends on detecting cars, not parking spaces. Also, I had to hard code a little bit because a few of the cars in one of the rows had bounding boxes that were heavily skewed and I thus needed to manually change the upper and lower bounds. Other than these 2 limitations, this logic will work on most other parking lot. This is just a starter problem as I Will attempt to actually detect parking spaces in the future. 
