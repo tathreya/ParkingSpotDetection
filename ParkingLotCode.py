@@ -1,3 +1,5 @@
+# Tanay
+
 import json, requests
 from picamera import PiCamera
 from time import sleep
